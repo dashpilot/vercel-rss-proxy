@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
 export default function handler(req, res) {
   const feed = 'https://rsshub.app/picuki/profile/filmkitnet'
