@@ -9,28 +9,35 @@
 
 <body>
 
-
+  <div class="container" id="page"></div>
   <script>
     const feed = '/api/insta';
     fetch(feed)
       .then(response => response.json())
       .then(data => {
         console.log(data);
-       
+
         let html = ``;
         data.items.forEach(item => {
+          let image = item.description.split('<p>')[0];
+          let body = item.description.split('<p>')[1];
           html += `
           <article>
-         
             <h2>${item.title}</h2>
-            
-            ${item.description}
+            <div class="row">
+              <div class="col-md-6">
+                ${image}
+              </div>
+              <div class="col-md-6">
+              ${body}
+              </div>
+            </div>
           </article>
         `;
         });
-      
-      console.log(html);
-        document.body.insertAdjacentHTML("beforeend", html);
+
+
+        document.querySelector('#page').innerHTML = html;
       });
   </script>
 </body>
