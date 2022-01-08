@@ -5,7 +5,7 @@ export default function handler(req, res) {
   parse(feed).then(rss => {
     console.log(JSON.stringify(rss, null, 3));
     
-    res.status(200).json(JSON.stringify(rss, null, 3));
+    res.status(200).json(rss);
 });
   
   
