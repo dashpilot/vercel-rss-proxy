@@ -6,6 +6,7 @@ export default function handler(req, res) {
     .then(response => response.text())
     .then(data => {
       console.log(data);
+      res.setHeader('Content-Type', 'text/xml');
       res.send(data)
     });
   
