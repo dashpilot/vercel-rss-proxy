@@ -1,22 +1,14 @@
-const { parse } = require('rss-to-json');
+const {
+  parse
+} = require('rss-to-json');
 
 export default function handler(req, res) {
-  const feed = 'https://rsshub.app/picuki/profile/filmkitnet'
+  const username = req.query.username;
+  const feed = 'https://rsshub.app/picuki/profile/' + username
   parse(feed).then(rss => {
-    console.log(JSON.stringify(rss, null, 3));
-    
+    console.log(req.query);
+
     res.status(200).json(rss);
-});
-  
-  
-  /*
-  fetch(feed)
-    .then(response => response.text())
-    .then(data => {
-      console.log(data);
-      res.setHeader('Content-Type', 'text/xml');
-      res.send(data)
-    });
-    */
-  
+  });
+
 }
