@@ -11,7 +11,7 @@
 
 
   <script>
-    const feed = 'https://codepen.io/picks/feed/';
+    const feed = '/api/insta';
     fetch(feed)
       .then(response => response.text())
       .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
