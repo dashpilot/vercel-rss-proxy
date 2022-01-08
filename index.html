@@ -13,19 +13,18 @@
   <script>
     const feed = '/api/insta';
     fetch(feed)
-      .then(response => response.text())
-      .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+      .then(response => response.json())
       .then(data => {
         console.log(data);
-        const items = data.querySelectorAll("item");
+       
         let html = ``;
-        items.forEach(el => {
+        data.items.forEach(el => {
           html += `
           <article>
-            <img src="${el.querySelector("link").innerHTML}/image/large.png" alt="">
+            <img src="${el.link}/image/large.png" alt="">
             <h2>
-              <a href="${el.querySelector("link").innerHTML}" target="_blank" rel="noopener">
-                ${el.querySelector("title").innerHTML}
+              <a href="${el.link}" target="_blank" rel="noopener">
+                ${el.title}
               </a>
             </h2>
           </article>
