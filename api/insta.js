@@ -1,4 +1,3 @@
-const fetch = require('node-fetch');
 const { parse } = require('rss-to-json');
 
 export default function handler(req, res) {
