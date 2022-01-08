@@ -18,15 +18,13 @@
         console.log(data);
        
         let html = ``;
-        data.items.forEach(el => {
+        data.items.forEach(item => {
           html += `
           <article>
-            <img src="${el.link}/image/large.png" alt="">
-            <h2>
-              <a href="${el.link}" target="_blank" rel="noopener">
-                ${el.title}
-              </a>
-            </h2>
+         
+            <h2>${item.title}</h2>
+            
+            ${item.description}
           </article>
         `;
         });
