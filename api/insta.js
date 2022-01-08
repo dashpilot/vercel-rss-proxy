@@ -6,9 +6,7 @@ export default function handler(req, res) {
     .then(response => response.text())
     .then(data => {
       console.log(data);
-      res.status(200).json({
-        body: data,
-      });
+      res.send(data)
     });
   
 }
